@@ -20,8 +20,8 @@
 <style>
 :root{
   --ink:#14213D;        /* night blue: text, dark sections */
-  --gold:#F2B01E;       /* gold ribbon: childhood cancer awareness */
-  --gold-soft:#FDF1D2;
+  --blue:#3B82F6;       /* sky blue: accent color */
+  --blue-soft:#DBEAFE;
   --sky:#EEF4FB;
   --body:#3D4A5C;
   --line:#DCE3EC;
@@ -33,7 +33,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:var(--text);color:var(--body);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block;background:var(--gold-soft)}
+img{max-width:100%;display:block;background:var(--blue-soft)}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--display);color:var(--ink);line-height:1.08;letter-spacing:-.02em}
 h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800}
@@ -42,12 +42,12 @@ p{max-width:62ch}
 .wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
 section{padding:clamp(72px,10vw,128px) 0}
 .lede{font-size:1.15rem;margin-top:18px}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 1rem var(--text);padding:14px 26px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:#FFC53D}
+.btn-blue{background:var(--blue);color:var(--ink)}
+.btn-blue:hover{background:#60A5FA}
 .btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
 .btn-line:hover{background:var(--ink);color:var(--white)}
 
@@ -58,14 +58,14 @@ header.over .brand{color:#fff}
 header.over .menu-btn span{background:#fff}
 header.over .nav .btn{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(196,214,232,.72);-webkit-backdrop-filter:blur(20px) saturate(.45);backdrop-filter:blur(20px) saturate(.45)}
 header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
-@media (min-width:1301px){header.over .nav ul a{color:#fbfdff}header.over .nav ul a:hover{color:var(--gold)}}
+@media (min-width:1301px){header.over .nav ul a{color:#fbfdff}header.over .nav ul a:hover{color:var(--blue)}}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:28px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.15rem var(--display);color:var(--ink);letter-spacing:-.02em}
 .ribbon{width:22px;height:30px;flex:none}
 .nav ul{display:flex;gap:20px;list-style:none}
 .nav ul a,.nav .btn,.brand{white-space:nowrap}
 .nav ul a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink)}
-.nav ul a:hover{color:#B7800A}
+.nav ul a:hover{color:#2563EB}
 .menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
 .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto}
 @media (max-width:1300px){
@@ -87,14 +87,14 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 .values li{background:var(--white);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:600;color:var(--ink)}
 @media (max-width:860px){.story-grid{grid-template-columns:1fr}}
 
-/* Timeline: the gold thread */
+/* Timeline: the blue thread */
 .journey-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,88px);align-items:start}.journey-head{position:sticky;top:120px}@media (max-width:860px){.journey-grid{grid-template-columns:1fr}.journey-head{position:static}}
 .timeline{position:relative;padding-left:56px}.timeline ol{list-style:none}
-.timeline::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:4px;background:var(--gold-soft);border-radius:4px}
-.thread{position:absolute;left:14px;top:8px;width:4px;height:0;background:var(--gold);border-radius:4px}
+.timeline::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:4px;background:var(--blue-soft);border-radius:4px}
+.thread{position:absolute;left:14px;top:8px;width:4px;height:0;background:var(--blue);border-radius:4px}
 .timeline li{position:relative;padding-bottom:48px}
 .timeline li:last-child{padding-bottom:0}
-.timeline li::before{content:"";position:absolute;left:-50px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--white);border:4px solid var(--gold)}
+.timeline li::before{content:"";position:absolute;left:-50px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--white);border:4px solid var(--blue)}
 .year{font:800 clamp(1.8rem,3.4vw,2.6rem) var(--display);color:var(--ink);letter-spacing:-.03em;display:block;margin-bottom:6px}
 
 /* Gallery */
@@ -113,16 +113,18 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 .lb-close{top:20px;right:20px}.lb-prev{left:20px;top:50%}.lb-next{right:20px;top:50%}
 
 /* Team */
-.team-grid{max-width:980px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:40px 28px;margin-top:52px}
-.member .face{position:relative;width:100%;aspect-ratio:1/1;border-radius:22px;background:var(--gold-soft);display:grid;place-items:center;overflow:hidden;margin-bottom:16px}
+.team-grid{max-width:980px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:24px 20px;margin-top:36px}
+.member .face{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;background:var(--blue-soft);display:grid;place-items:center;overflow:hidden;margin-bottom:10px}
 .member .face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.member .initials{font:800 3.2rem var(--display);color:#B7800A;letter-spacing:-.03em}
-.member .role{font-weight:600;color:#B7800A;margin:4px 0 8px}
-.member p{font-size:.95rem}
+.member .initials{font:800 2rem var(--display);color:#2563EB;letter-spacing:-.03em}
+.member h3{font-size:.95rem}
+.member .role{font-weight:600;color:#2563EB;margin:2px 0 6px;font-size:.85rem}
+.member p{font-size:.82rem;line-height:1.4}
+#team{padding:clamp(48px,7vw,80px) 0}
 .team-cta{margin-top:56px;display:flex;flex-wrap:wrap;align-items:center;gap:20px}
 
 /* Charities */
-.charities{background:var(--gold-soft)}
+.charities{background:var(--blue-soft)}
 .charity-list{margin-top:48px;border-top:2px solid var(--ink)}
 .charity{display:grid;grid-template-columns:1fr 1.4fr auto;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(20,33,61,.18)}
 .charity h3{font-size:clamp(1.4rem,2.4vw,1.9rem)}
@@ -145,7 +147,7 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 .help-item a{margin-top:auto;font-weight:600;color:var(--ink);padding-top:10px}
 .help-item.feature{background:var(--ink);color:#C9D3E3}
 .help-item.feature h3{color:var(--white)}
-.help-item.feature a{color:var(--gold)}
+.help-item.feature a{color:var(--blue)}
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px)}
@@ -167,7 +169,7 @@ footer{background:var(--ink);color:#AEBBD0;padding:56px 0 40px}
 footer .brand{color:var(--white)}
 footer p{margin-top:12px;max-width:40ch}
 footer ul{list-style:none;display:grid;gap:8px}
-footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
+footer ul a{text-decoration:none}footer ul a:hover{color:var(--blue)}
 .copy{margin-top:40px;padding-top:24px;border-top:1px solid #2A3A5E;font-size:.9rem}
 
 
@@ -178,7 +180,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .flow-node rect{rx:16}
 .flow-node text{font-family:var(--text);font-weight:600;font-size:15px;text-anchor:middle;dominant-baseline:middle}
 .flow-path{fill:none;stroke:#C9D6E6;stroke-width:2.5}
-.flow-dot{fill:var(--gold)}
+.flow-dot{fill:var(--blue)}
 .flow-note{margin-top:22px}
 .swipe{display:none;font-size:.9rem;margin-top:8px}
 @media (max-width:780px){.swipe{display:block}}
@@ -193,7 +195,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .ask-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
 .msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.95rem;line-height:1.45;white-space:pre-wrap}
 .msg.bot{background:var(--sky);color:var(--ink);align-self:flex-start}
-.msg.me{background:var(--gold);color:var(--ink);align-self:flex-end}
+.msg.me{background:var(--blue);color:var(--ink);align-self:flex-end}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips button{font:500 .85rem var(--text);border:1px solid var(--line);background:var(--white);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
 .ask-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--white)}
@@ -201,19 +203,19 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .ask-form button{padding:10px 16px}
 
 
-/* Shiven portrait motion: slow drift toward his face, gold ring draws on scroll, name card slides in, gold sparks rise */
+/* Shiven portrait motion: slow drift toward his face, blue ring draws on scroll, name card slides in, blue sparks rise */
 .shiven{position:relative;margin:0;padding:14px}
 .shiven-frame{border-radius:24px;overflow:hidden;aspect-ratio:1/1}
 .shiven-frame img{width:100%;height:100%;object-fit:cover;border-radius:0;transform-origin:50% 36%;animation:kenburns 22s ease-in-out infinite alternate}
 @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.1) translateY(1.5%)}}
 .shiven-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.shiven-ring rect{fill:none;stroke:var(--gold);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.2,1)}
+.shiven-ring rect{fill:none;stroke:var(--blue);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.2,1)}
 .shiven.in .shiven-ring rect{stroke-dashoffset:0}
 .shiven figcaption{position:absolute;left:-14px;bottom:44px;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--white);font:800 1.6rem var(--display);letter-spacing:-.02em;padding:12px 22px 12px 16px;border-radius:16px;box-shadow:0 12px 30px rgba(20,33,61,.25);opacity:0;transform:translateX(-18px);transition:opacity .7s 1.9s,transform .7s 1.9s cubic-bezier(.2,.7,.2,1)}
 .shiven figcaption svg{width:20px;height:27px;flex:none}
 .shiven.in figcaption{opacity:1;transform:none}
 .sparks{position:absolute;left:14px;right:14px;bottom:14px;height:70%;pointer-events:none;overflow:hidden;border-radius:0 0 24px 24px}
-.sparks i{position:absolute;bottom:-10px;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px 2px rgba(242,176,30,.7);opacity:0;animation:spark 8s linear infinite}
+.sparks i{position:absolute;bottom:-10px;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px 2px rgba(59,130,246,.7);opacity:0;animation:spark 8s linear infinite}
 .sparks i:nth-child(1){left:8%;animation-delay:0s}.sparks i:nth-child(2){left:22%;animation-delay:2.6s;width:5px;height:5px}
 .sparks i:nth-child(3){left:38%;animation-delay:5.1s}.sparks i:nth-child(4){left:61%;animation-delay:1.3s;width:5px;height:5px}
 .sparks i:nth-child(5){left:77%;animation-delay:3.9s}.sparks i:nth-child(6){left:91%;animation-delay:6.4s;width:5px;height:5px}
@@ -223,14 +225,14 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 @media (prefers-reduced-motion:reduce){.shiven-frame img{animation:none}.shiven-ring rect{stroke-dashoffset:0;transition:none}.shiven figcaption{opacity:1;transform:none;transition:none}.sparks{display:none}}
 
 /* Legacy video */
-.video{margin-top:clamp(40px,6vw,72px);border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:var(--ink);box-shadow:0 20px 50px rgba(20,33,61,.18)}
+.video{margin-top:clamp(40px,6vw,72px);border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:var(--ink);box-shadow:0 20px 50px rgba(20,33,61,.18);max-width:680px;margin-left:auto;margin-right:auto}
 .video-play{all:unset;display:block;width:100%;height:100%;position:relative;cursor:pointer;background:radial-gradient(circle at 50% 45%,#23345a,var(--ink))}
 .video-play img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .video-play:hover img{transform:scale(1.03)}
-.video-play:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-.play-dot{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(242,176,30,.6);animation:pulse 2.4s infinite}
+.video-play:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.play-dot{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(59,130,246,.6);animation:pulse 2.4s infinite}
 .play-dot svg{width:36px;height:36px;fill:var(--ink);margin-left:4px}
-@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(242,176,30,0)}100%{box-shadow:0 0 0 0 rgba(242,176,30,0)}}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(59,130,246,0)}100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}}
 .video iframe{width:100%;height:100%;border:0;display:block}
 .video-link{margin-top:12px;font-weight:600}
 .video-link a{color:var(--ink)}
@@ -241,9 +243,9 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .goal-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.95rem}
 .goal-top b{color:var(--ink)}
 .goal-track{margin-top:14px;height:14px;border-radius:999px;background:var(--sky);position:relative}
-.goal-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#F2B01E,#F7C85A);position:relative;transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
+.goal-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#3B82F6,#93C5FD);position:relative;transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
 .goal.in .goal-fill{width:100%}
-.goal-tag{position:absolute;right:-6px;top:50%;transform:translate(100%,-50%) scale(.6);opacity:0;background:var(--ink);color:var(--gold);font:800 .85rem var(--display);padding:4px 9px;border-radius:999px;transition:opacity .4s 1.7s,transform .5s 1.7s cubic-bezier(.3,1.6,.5,1)}
+.goal-tag{position:absolute;right:-6px;top:50%;transform:translate(100%,-50%) scale(.6);opacity:0;background:var(--ink);color:var(--blue);font:800 .85rem var(--display);padding:4px 9px;border-radius:999px;transition:opacity .4s 1.7s,transform .5s 1.7s cubic-bezier(.3,1.6,.5,1)}
 .goal.in .goal-tag{opacity:1;transform:translate(100%,-50%) scale(1)}
 .goal-track{margin-right:58px}
 .goal-note{margin-top:12px;font-weight:600;color:var(--ink)}
@@ -254,13 +256,13 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .event{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:16px 20px;transition:transform .25s,box-shadow .25s}
 .event:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,33,61,.1)}
 .event-date{width:62px;text-align:center;background:var(--ink);color:var(--white);border-radius:14px;padding:8px 0;line-height:1.1}
-.event-date span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold)}
+.event-date span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
 .event-date b{display:block;font:800 1.7rem var(--display)}
 .event h3{font-size:1.05rem;margin:0}
 .event p{margin:2px 0 0;font-size:.92rem}
 .event-meta{color:var(--ink);font-weight:500}
-.event-price{font:800 1.1rem var(--display);color:var(--ink);background:var(--gold-soft);padding:8px 12px;border-radius:12px}
-.event-price.free{background:var(--gold)}
+.event-price{font:800 1.1rem var(--display);color:var(--ink);background:var(--blue-soft);padding:8px 12px;border-radius:12px}
+.event-price.free{background:var(--blue)}
 .event-poster{display:block;text-decoration:none;color:var(--ink);font-weight:600}
 .event-poster img{width:100%;border-radius:20px;box-shadow:0 16px 40px rgba(20,33,61,.15);transition:transform .4s}
 .event-poster:hover img{transform:rotate(-1deg) scale(1.02)}
@@ -274,7 +276,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
    HERO (video). Everything you might want to change lives in these tokens.
    ===================================================================== */
 .sh-hero{
-  --sh-accent:#F2B01E;            /* chevrons: Team Shiven gold */
+  --sh-accent:#3B82F6;            /* chevrons: Team Shiven blue */
   --sh-ink:#ffffff;               /* headline */
   --sh-sub:#c3cad6;               /* supporting line */
   --sh-feat:#e2ebf5;              /* the four facts */
@@ -289,7 +291,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   color:var(--sh-ink);font-family:'Sora',var(--text);
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  background:radial-gradient(60% 50% at 50% 42%,rgba(242,176,30,.22),rgba(80,120,200,.10) 55%,rgba(3,6,12,0) 80%),#03060c;
+  background:radial-gradient(60% 50% at 50% 42%,rgba(59,130,246,.22),rgba(80,120,200,.10) 55%,rgba(3,6,12,0) 80%),#03060c;
 }
 .sh-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-2;pointer-events:none;background:transparent}
 .sh-veil{position:absolute;inset:0;z-index:-1;pointer-events:none;background:
@@ -363,7 +365,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 <header class="over">
   <nav class="nav wrap" aria-label="Main">
     <a href="#home" class="brand">
-      <svg class="ribbon" viewBox="0 0 22 30" aria-hidden="true"><path d="M11 2c-4 0-6 3-6 6 0 4 3 8 6 11 3-3 6-7 6-11 0-3-2-6-6-6Zm0 17L4 28M11 19l7 9" fill="none" stroke="#F2B01E" stroke-width="3.2" stroke-linecap="round"/></svg>
+      <svg class="ribbon" viewBox="0 0 22 30" aria-hidden="true"><path d="M11 2c-4 0-6 3-6 6 0 4 3 8 6 11 3-3 6-7 6-11 0-3-2-6-6-6Zm0 17L4 28M11 19l7 9" fill="none" stroke="#3B82F6" stroke-width="3.2" stroke-linecap="round"/></svg>
       Team Shiven Foundation
     </a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -377,7 +379,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
       <li><a href="#help">How to Help</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#help" class="btn btn-gold">Get involved</a>
+    <a href="#help" class="btn btn-blue">Get involved</a>
   </nav>
 </header>
 
@@ -393,7 +395,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   <div class="sh-veil" aria-hidden="true"></div>
   <div class="sh-inner">
     <h1 class="sh-title"><span>For Shiven. For hope.</span><span>For every child fighting cancer.</span></h1>
-    <p class="sh-sub"><span>A teen-led foundation raising funds for Canadian charities</span><span>that support children with cancer and their families.</span></p>
+    <p class="sh-sub"><span>A family-led foundation raising funds for Canadian charities</span><span>that support children with cancer and their families.</span></p>
     <a class="sh-cta" href="#help"><span>Get involved</span><svg class="arrow" viewBox="0 0 16 11" aria-hidden="true"><path d="M0 5.5 H14.6 M10.3 1.2 L14.9 5.5 L10.3 9.8"/></svg></a>
     <ul class="sh-feats">
       <li><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span>$30,846 raised</span></li>
@@ -412,11 +414,12 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
       <div class="shiven-frame"><img src="images/shiven/shiven.jpg" alt="Shiven smiling in a navy cap and a red cape"></div>
       <svg class="shiven-ring" aria-hidden="true"><rect/></svg>
       <span class="sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-      <figcaption><svg viewBox="0 0 24 32" aria-hidden="true"><path d="M12 3c-4 0-6 3-6 6 0 4.5 3.3 8.6 6 12 2.7-3.4 6-7.5 6-12 0-3-2-6-6-6Zm0 18-7 8m7-8 7 8" fill="none" stroke="#F2B01E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Shiven</figcaption>
+      <figcaption><svg viewBox="0 0 24 32" aria-hidden="true"><path d="M12 3c-4 0-6 3-6 6 0 4.5 3.3 8.6 6 12 2.7-3.4 6-7.5 6-12 0-3-2-6-6-6Zm0 18-7 8m7-8 7 8" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Shiven</figcaption>
     </figure>
     <div>
       <h2>Shiven's legacy</h2>
       <p class="lede">Shiven was a young boy whose strength, laughter, and compassion touched every life around him.</p>
+      <p style="font-weight:700;color:var(--blue);font-size:1.1rem;margin-top:8px">December 15, 2007 &ndash; September 16, 2016</p>
       <p>During his fight, four organizations gave our family hope, strength, and joy: Campfire Circle, Make-A-Wish Canada, SickKids Foundation, and Million Dollar Smiles. Team Shiven Foundation exists to give back to them, so the next family gets the same support we did.</p>
       <p>Every donation, every event, and every volunteer hour carries his name forward.</p>
       <ul class="values" aria-label="Our values"><li>Love</li><li>Courage</li><li>Giving</li><li>Hope</li></ul>
@@ -425,11 +428,11 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="video" id="shivenVideo">
       <button class="video-play" type="button" aria-label="Play the Team Shiven video">
-        <img src="https://i.ytimg.com/vi/bNSTsITkWoA/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/1XTBsdelftI/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="play-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </button>
     </div>
-    <p class="video-link"><a href="https://youtu.be/bNSTsITkWoA" target="_blank" rel="noopener">Watch on YouTube</a></p>
+    <p class="video-link"><a href="https://youtu.be/1XTBsdelftI" target="_blank" rel="noopener">Watch on YouTube</a></p>
   </div>
 </section>
 
@@ -438,7 +441,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   <div class="wrap journey-grid">
     <div class="journey-head">
       <h2>From one family to a foundation</h2>
-      <p class="lede">What started as a family giving back is now a teen-led foundation with a full board.</p>
+      <p class="lede">What started as a family giving back is now a family-led foundation with a full board.</p>
     </div>
     <div class="timeline">
       <span class="thread" aria-hidden="true"></span>
@@ -446,7 +449,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
       <!-- To add a milestone, copy one <li> block below and change the year and text. -->
       <li><span class="year">2016</span><h3>Where it starts</h3><p>In Shiven's memory, our family begins giving back to the charities that stood by us.</p></li>
       <li><span class="year">2016 to 2024</span><h3>Event by event</h3><p>Family, friends, and classmates host fundraisers across our community. The events add up, and so does the support.</p></li>
-      <li><span class="year">2025</span><h3>Team Shiven Foundation launches</h3><p>We formalize the work with a teen-led board and adult oversight, and commit to four partner charities.</p></li>
+      <li><span class="year">2025</span><h3>Team Shiven Foundation launches</h3><p>We formalize the work with a family-led board and commit to four partner charities.</p></li>
       <li><span class="year">Today</span><h3>$30,846 raised, 25+ events</h3><p>The work keeps growing. The next chapter is yours to help write.</p></li>
       </ol>
     </div>
@@ -466,19 +469,6 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
     <img id="lbImg" alt="">
     <p id="lbCap"></p>
     <button class="lb-next" aria-label="Next photo">&#8250;</button>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="wrap">
-    <h2>Our team</h2>
-    <p class="lede">A teen-led board with adult oversight, working together for children and families facing cancer.</p>
-    <div class="team-grid" id="teamGrid"></div>
-    <div class="team-cta">
-      <a href="#contact" data-subject="Joining the team" class="btn btn-gold">Join our team</a>
-      <p>We are always looking for students who want to lead.</p>
-    </div>
   </div>
 </section>
 
@@ -570,6 +560,19 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <h2>Our team</h2>
+    <p class="lede">A family-led board working together for children and families facing cancer.</p>
+    <div class="team-grid" id="teamGrid"></div>
+    <div class="team-cta">
+      <a href="#contact" data-subject="Joining the team" class="btn btn-blue">Join our team</a>
+      <p>We are always looking for students who want to lead.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap contact-grid">
@@ -589,7 +592,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
       </div>
       <label>Subject<input name="subject" id="subject" required></label>
       <label>Message <span class="hint">Maximum 500 characters</span><textarea name="message" maxlength="500" required></textarea></label>
-      <button class="btn btn-gold" type="submit">Send message</button>
+      <button class="btn btn-blue" type="submit">Send message</button>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
   </div>
@@ -611,7 +614,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 </footer>
 
 <!-- AI HELPER (powered by Claude, needs the ANTHROPIC_API_KEY setting in Vercel) -->
-<button class="btn btn-gold ask-btn" id="askBtn" aria-expanded="false" aria-controls="askPanel">Ask about Team Shiven</button>
+<button class="btn btn-blue ask-btn" id="askBtn" aria-expanded="false" aria-controls="askPanel">Ask about Team Shiven</button>
 <div class="ask-panel" id="askPanel" role="dialog" aria-label="Ask about Team Shiven">
   <div class="ask-head"><b>Ask about Team Shiven</b><button id="askClose" aria-label="Close">&times;</button></div>
   <div class="ask-log" id="askLog" aria-live="polite">
@@ -622,7 +625,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
       <button>How do I host a fundraiser?</button>
     </div>
   </div>
-  <form class="ask-form" id="askForm"><input id="askInput" maxlength="400" placeholder="Type your question" aria-label="Your question" autocomplete="off"><button class="btn btn-gold" type="submit">Send</button></form>
+  <form class="ask-form" id="askForm"><input id="askInput" maxlength="400" placeholder="Type your question" aria-label="Your question" autocomplete="off"><button class="btn btn-blue" type="submit">Send</button></form>
 </div>
 
 <script>
@@ -706,7 +709,7 @@ document.querySelectorAll("[data-subject]").forEach(a => a.addEventListener("cli
   document.getElementById("subject").value = a.dataset.subject;
 }));
 
-// Timeline gold thread fills as you scroll
+// Timeline blue thread fills as you scroll
 const tl = document.querySelector(".timeline"), thread = document.querySelector(".thread");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function fill(){
@@ -724,14 +727,14 @@ document.getElementById("contactForm").addEventListener("submit", e => {
   location.href = `mailto:teamshivenfoundation@gmail.com?subject=${encodeURIComponent(f.get("subject"))}&body=${encodeURIComponent(body)}`;
   document.getElementById("formStatus").textContent = "Your email app is opening with the message ready to send.";
 });
-// Support flow diagram with moving gold dots
+// Support flow diagram with moving blue dots
 (function(){
   const svg = document.getElementById("flowSvg"), NS = "http://www.w3.org/2000/svg";
   const W = {src:150, hub:220, ch:200, end:160};
   const nodes = {
     src: [["Donors",110],["Event guests",230],["Volunteers",350]].map(([t,y])=>({t,x:20,y,w:W.src,h:52,style:"soft"})),
     hub: {t:"Team Shiven",t2:"Foundation",sub:"In Shiven's name",x:280,y:230,w:W.hub,h:104,style:"ink"},
-    ch: [["Campfire Circle",75],["Make-A-Wish Canada",178],["SickKids Foundation",282],["Million Dollar Smiles",385]].map(([t,y])=>({t,x:575,y,w:W.ch,h:52,style:"gold"})),
+    ch: [["Campfire Circle",75],["Make-A-Wish Canada",178],["SickKids Foundation",282],["Million Dollar Smiles",385]].map(([t,y])=>({t,x:575,y,w:W.ch,h:52,style:"blue"})),
     end: {t:"Children",t2:"and families",x:830,y:230,w:W.end,h:88,style:"ink"}
   };
   const el = (n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
@@ -753,13 +756,13 @@ document.getElementById("contactForm").addEventListener("submit", e => {
   nodes.src.forEach((n,j)=>link(n,nodes.hub,j*.3));
   nodes.ch.forEach((n,j)=>link(nodes.hub,n,.9+j*.2));
   nodes.ch.forEach((n,j)=>link(n,nodes.end,1.8+j*.2));
-  const colors = {soft:["#FFFFFF","#14213D"],gold:["#FDF1D2","#14213D"],ink:["#14213D","#FFFFFF"]};
+  const colors = {soft:["#FFFFFF","#14213D"],blue:["#DBEAFE","#14213D"],ink:["#14213D","#FFFFFF"]};
   function box(n){
     const g = el("g",{class:"flow-node"}), [fill,ink] = colors[n.style];
     g.appendChild(el("rect",{x:n.x,y:n.y-n.h/2,width:n.w,height:n.h,rx:16,fill,stroke:n.style==="soft"?"#DCE3EC":fill}));
     const lines=[n.t,n.t2].filter(Boolean), total=lines.length+(n.sub?1:0), top=n.y-(total-1)*10;
     lines.forEach((ln,k)=>{const t=el("text",{x:n.x+n.w/2,y:top+k*20,fill:ink});t.textContent=ln;g.appendChild(t);});
-    if(n.sub){const s2=el("text",{x:n.x+n.w/2,y:top+lines.length*20+2,fill:"#F2B01E","font-size":"13"});s2.textContent=n.sub;g.appendChild(s2);}
+    if(n.sub){const s2=el("text",{x:n.x+n.w/2,y:top+lines.length*20+2,fill:"#3B82F6","font-size":"13"});s2.textContent=n.sub;g.appendChild(s2);}
     svg.appendChild(g);
   }
   [...nodes.src,nodes.hub,...nodes.ch,nodes.end].forEach(box);
@@ -823,7 +826,7 @@ document.getElementById("contactForm").addEventListener("submit", e => {
 (function(){
   const box=document.getElementById("shivenVideo"); if(!box) return;
   box.querySelector(".video-play").addEventListener("click",()=>{
-    box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/bNSTsITkWoA?autoplay=1&rel=0" title="Team Shiven video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/1XTBsdelftI?autoplay=1&rel=0" title="Team Shiven video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
   });
 })();
 
