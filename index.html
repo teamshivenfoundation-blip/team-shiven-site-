@@ -601,7 +601,12 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
         <li><b>Location</b>Toronto, Ontario, Canada</li>
       </ul>
     </div>
-    <form id="contactForm">
+    <form id="contactForm" action="https://formsubmit.co/teamshivenfoundation@gmail.com" method="POST">
+      <input type="hidden" name="_subject" id="_subject" value="New message from Team Shiven website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://team-shiven-site.vercel.app/#contact">
+      <input type="text" name="_honey" style="display:none">
       <div class="row">
         <label>Full name<input name="name" required autocomplete="name"></label>
         <label>Email address<input name="email" type="email" required autocomplete="email"></label>
@@ -735,13 +740,35 @@ function fill(){
 }
 addEventListener("scroll", fill, { passive: true }); addEventListener("resize", fill); fill();
 
-// Contact form: opens the visitor's email app with the message filled in
-document.getElementById("contactForm").addEventListener("submit", e => {
+// Contact form: submits via FormSubmit.co API
+document.getElementById("contactForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const f = new FormData(e.target);
-  const body = `${f.get("message")}\n\nFrom: ${f.get("name")} (${f.get("email")})`;
-  location.href = `mailto:teamshivenfoundation@gmail.com?subject=${encodeURIComponent(f.get("subject"))}&body=${encodeURIComponent(body)}`;
-  document.getElementById("formStatus").textContent = "Your email app is opening with the message ready to send.";
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+  const btn = form.querySelector("button[type=submit]");
+  // Set dynamic subject from the subject field
+  const subjectField = form.querySelector("#subject");
+  const hiddenSubject = form.querySelector("#_subject");
+  if (subjectField && hiddenSubject) hiddenSubject.value = subjectField.value + " (Team Shiven website)";
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+  status.textContent = "";
+  try {
+    const res = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } });
+    if (res.ok) {
+      status.textContent = "Message sent! We will get back to you soon.";
+      status.style.color = "#34D399";
+      form.reset();
+    } else {
+      status.textContent = "Something went wrong. Please email us at teamshivenfoundation@gmail.com.";
+      status.style.color = "#F87171";
+    }
+  } catch {
+    status.textContent = "Network error. Please email us at teamshivenfoundation@gmail.com.";
+    status.style.color = "#F87171";
+  }
+  btn.disabled = false;
+  btn.textContent = "Send message";
 });
 // Support flow diagram with moving gold dots
 (function(){
