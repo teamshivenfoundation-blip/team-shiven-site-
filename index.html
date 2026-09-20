@@ -19,13 +19,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14213D;        /* night blue: text, dark sections */
-  --gold:#3B82F6;       /* gold ribbon: childhood cancer awareness */
-  --gold-soft:#DBEAFE;
-  --sky:#EEF4FB;
-  --body:#3D4A5C;
-  --line:#DCE3EC;
-  --white:#FFFFFF;
+  --ink:#FFFFFF;        /* text: white */
+  --gold:#3B82F6;       /* blue accent */
+  --gold-soft:rgba(59,130,246,.15);
+  --sky:#0A1628;        /* darker blue sections */
+  --body:#C9D3E3;       /* body text: light grey */
+  --line:rgba(255,255,255,.15);
+  --white:#0D1B2A;      /* dark blue background */
+  --dark-bg:#0D1B2A;
+  --darker-bg:#060F1A;
   --display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
   --text:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --wrap:1180px;
@@ -46,13 +48,13 @@ section{padding:clamp(64px,8vw,110px) 0}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 1rem var(--text);padding:14px 26px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
-.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold{background:var(--gold);color:#FFFFFF}
 .btn-gold:hover{background:#60A5FA}
-.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn-line:hover{background:var(--ink);color:var(--white)}
+.btn-line{border-color:#FFFFFF;color:#FFFFFF;background:transparent}
+.btn-line:hover{background:#FFFFFF;color:var(--dark-bg)}
 
 /* Nav */
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background .35s,border-color .35s}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,27,42,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background .35s,border-color .35s}
 header.over{background:transparent;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 header.over .brand{color:#fff}
 header.over .menu-btn span{background:#fff}
@@ -60,17 +62,17 @@ header.over .nav .btn{background:rgba(255,255,255,.06);color:#fff;border:1.5px s
 header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 @media (min-width:1301px){header.over .nav ul a{color:#fbfdff}header.over .nav ul a:hover{color:var(--gold)}}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:28px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.15rem var(--display);color:var(--ink);letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.15rem var(--display);color:#FFFFFF;letter-spacing:-.02em}
 .ribbon{width:22px;height:30px;flex:none}
 .nav ul{display:flex;gap:20px;list-style:none}
 .nav ul a,.nav .btn,.brand{white-space:nowrap}
-.nav ul a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink)}
-.nav ul a:hover{color:#2563EB}
+.nav ul a{text-decoration:none;font-weight:500;font-size:.95rem;color:#FFFFFF}
+.nav ul a:hover{color:var(--gold)}
 .menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
 .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto}
 @media (max-width:1300px){
   .menu-btn{display:block}
-  .nav ul{position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--white);border-bottom:1px solid var(--line);display:none}
+  .nav ul{position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--dark-bg);border-bottom:1px solid var(--line);display:none}
   .nav ul.open{display:flex}
   .nav ul a{display:block;padding:14px 20px}
   .nav .btn{display:none}
@@ -79,13 +81,13 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 /* Hero */
 
 /* Story */
-.story{background:var(--sky)}
+.story{background:var(--sky);color:#C9D3E3}
 .story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,88px);align-items:center}
 .story-grid img{border-radius:24px;aspect-ratio:1/1;object-fit:cover;width:100%}
 .story-grid p+p{margin-top:16px}
 .values{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;list-style:none}
-.values li{background:var(--white);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:600;color:var(--ink)}
-@media (max-width:860px){.story-grid{grid-template-columns:1fr}}
+.values li{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);padding:8px 18px;border-radius:999px;font-weight:600;color:#FFFFFF}
+@media (max-width:860px){.story-grid{grid-template-columns:1fr}.story .wrap[style*="grid-template-columns"]{grid-template-columns:1fr!important}}
 
 /* Timeline: the gold thread */
 .journey-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,88px);align-items:start}.journey-head{position:sticky;top:120px}@media (max-width:860px){.journey-grid{grid-template-columns:1fr}.journey-head{position:static}}
@@ -98,23 +100,23 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 .year{font:800 clamp(1.8rem,3.4vw,2.6rem) var(--display);color:var(--ink);letter-spacing:-.03em;display:block;margin-bottom:6px}
 
 /* Gallery */
-.gallery{background:var(--ink);color:#C9D3E3}
-.gallery h2{color:var(--white)}
+.gallery{background:var(--darker-bg);color:#C9D3E3}
+.gallery h2{color:#FFFFFF}
 .gallery-grid{columns:3 280px;column-gap:16px;margin-top:48px}
 .gallery-grid button{display:block;width:100%;margin-bottom:16px;border:0;padding:0;background:none;cursor:zoom-in;break-inside:avoid;border-radius:16px;overflow:hidden;text-align:left}
 .gallery-grid img{width:100%;height:auto;transition:transform .4s}
 .gallery-grid button:hover img{transform:scale(1.03)}
-.gallery-grid .cap{display:block;background:#1D2D4F;color:#DCE3EC;font-size:.9rem;padding:10px 14px}
+.gallery-grid .cap{display:block;background:rgba(59,130,246,.15);color:#DCE3EC;font-size:.9rem;padding:10px 14px}
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(10,18,36,.94);display:none;align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
 .lightbox.open{display:flex}
 .lightbox img{max-height:82vh;width:auto;border-radius:12px}
-.lightbox p{color:var(--white);text-align:center}
-.lb-close,.lb-prev,.lb-next{position:absolute;background:rgba(255,255,255,.12);color:var(--white);border:0;width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+.lightbox p{color:#FFFFFF;text-align:center}
+.lb-close,.lb-prev,.lb-next{position:absolute;background:rgba(255,255,255,.12);color:#FFFFFF;border:0;width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer}
 .lb-close{top:20px;right:20px}.lb-prev{left:20px;top:50%}.lb-next{right:20px;top:50%}
 
 /* Team */
 .team-grid{max-width:860px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px 20px;margin-top:36px}
-.member .face{position:relative;width:100%;aspect-ratio:1/1;border-radius:18px;background:var(--gold-soft);display:grid;place-items:center;overflow:hidden;margin-bottom:16px}
+.member .face{position:relative;width:100%;aspect-ratio:1/1;border-radius:18px;background:rgba(59,130,246,.15);display:grid;place-items:center;overflow:hidden;margin-bottom:16px}
 .member .face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .member .initials{font:800 2.4rem var(--display);color:#2563EB;letter-spacing:-.03em}
 .member .role{font-weight:600;color:#2563EB;margin:4px 0 8px}
@@ -122,57 +124,57 @@ header.over .nav .btn:hover{background:rgba(255,255,255,.14)}
 .team-cta{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:20px}
 
 /* Charities */
-.charities{background:var(--gold-soft)}
-.charity-list{margin-top:48px;border-top:2px solid var(--ink)}
-.charity{display:grid;grid-template-columns:1fr 1.4fr auto;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(20,33,61,.18)}
+.charities{background:var(--sky)}
+.charity-list{margin-top:48px;border-top:2px solid rgba(255,255,255,.2)}
+.charity{display:grid;grid-template-columns:1fr 1.4fr auto;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .charity h3{font-size:clamp(1.4rem,2.4vw,1.9rem)}
-.charity a{font-weight:600;color:var(--ink);white-space:nowrap}
+.charity a{font-weight:600;color:var(--gold);white-space:nowrap}
 @media (max-width:760px){.charity{grid-template-columns:1fr;gap:8px}}
-.receipt-note{margin-top:32px;font-weight:500;color:var(--ink)}
+.receipt-note{margin-top:32px;font-weight:500;color:#FFFFFF}
 
 /* Impact */
 .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .impact-grid img{border-radius:24px;width:100%;aspect-ratio:4/3;object-fit:cover}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:32px 24px;margin-top:40px}
-.stat strong{display:block;font:800 clamp(2.2rem,4.4vw,3.4rem) var(--display);color:var(--ink);letter-spacing:-.03em;line-height:1}
+.stat strong{display:block;font:800 clamp(2.2rem,4.4vw,3.4rem) var(--display);color:#FFFFFF;letter-spacing:-.03em;line-height:1}
 .stat span{font-weight:500}
 @media (max-width:860px){.impact-grid{grid-template-columns:1fr}}
 
 /* Help */
-.help{background:var(--sky)}
+.help{background:var(--sky);color:#C9D3E3}
 .help-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;margin-top:48px}.help-item.feature{grid-row:span 2;justify-content:flex-end;padding:36px}.help-item.feature h3{font-size:2rem}@media (max-width:860px){.help-grid{grid-template-columns:1fr}.help-item.feature{grid-row:auto}}
-.help-item{background:var(--white);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
-.help-item a{margin-top:auto;font-weight:600;color:var(--ink);padding-top:10px}
-.help-item.feature{background:var(--ink);color:#C9D3E3}
-.help-item.feature h3{color:var(--white)}
+.help-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px;color:#C9D3E3}
+.help-item a{margin-top:auto;font-weight:600;color:var(--gold);padding-top:10px}
+.help-item.feature{background:rgba(59,130,246,.15);color:#C9D3E3;border-color:rgba(59,130,246,.3)}
+.help-item.feature h3{color:#FFFFFF}
 .help-item.feature a{color:var(--gold)}
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px)}
 .details{list-style:none;margin-top:32px;display:grid;gap:20px}
-.details b{display:block;color:var(--ink);font-family:var(--display);font-size:1.05rem}
+.details b{display:block;color:#FFFFFF;font-family:var(--display);font-size:1.05rem}
 .details a{text-decoration:none}.details a:hover{text-decoration:underline}
-form{display:grid;gap:16px;background:var(--sky);padding:clamp(24px,4vw,40px);border-radius:24px}
+form{display:grid;gap:16px;background:rgba(255,255,255,.06);padding:clamp(24px,4vw,40px);border-radius:24px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{display:grid;gap:6px;font-weight:600;color:var(--ink);font-size:.95rem}
-input,textarea,select{font:400 1rem var(--text);padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--white);color:var(--ink);width:100%}
+label{display:grid;gap:6px;font-weight:600;color:#FFFFFF;font-size:.95rem}
+input,textarea,select{font:400 1rem var(--text);padding:13px 14px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:rgba(255,255,255,.08);color:#FFFFFF;width:100%}
 textarea{min-height:140px;resize:vertical}
 .hint{font-weight:400;font-size:.85rem;color:var(--body)}
-.form-status{font-weight:600;color:var(--ink)}
+.form-status{font-weight:600;color:#FFFFFF}
 @media (max-width:860px){.contact-grid,.row{grid-template-columns:1fr}}
 
 /* Footer */
-footer{background:var(--ink);color:#AEBBD0;padding:56px 0 40px}
+footer{background:var(--darker-bg);color:#AEBBD0;padding:56px 0 40px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
-footer .brand{color:var(--white)}
+footer .brand{color:#FFFFFF}
 footer p{margin-top:12px;max-width:40ch}
 footer ul{list-style:none;display:grid;gap:8px}
 footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
-.copy{margin-top:40px;padding-top:24px;border-top:1px solid #2A3A5E;font-size:.9rem}
+.copy{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:.9rem}
 
 
 /* Motion 2: support flow diagram */
-.flow{background:var(--sky)}
+.flow{background:var(--sky);color:#C9D3E3}
 .flow-scroll{overflow-x:auto;margin-top:44px;padding-bottom:8px}
 .flow-scroll svg{min-width:780px;width:100%;height:auto;display:block}
 .flow-node rect{rx:16}
@@ -185,18 +187,18 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 
 /* AI helper */
 .ask-btn{position:fixed;right:20px;bottom:20px;z-index:60;box-shadow:0 10px 30px rgba(20,33,61,.25)}
-.ask-panel{position:fixed;right:20px;bottom:88px;z-index:60;width:min(380px,calc(100vw - 40px));height:min(520px,calc(100vh - 120px));background:var(--white);border-radius:22px;box-shadow:0 20px 60px rgba(20,33,61,.3);display:none;flex-direction:column;overflow:hidden}
+.ask-panel{position:fixed;right:20px;bottom:88px;z-index:60;width:min(380px,calc(100vw - 40px));height:min(520px,calc(100vh - 120px));background:var(--dark-bg);border:1px solid rgba(255,255,255,.1);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden}
 .ask-panel.open{display:flex}
-.ask-head{background:var(--ink);color:var(--white);padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
+.ask-head{background:var(--ink);color:var(--dark-bg);padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
 .ask-head b{font-family:var(--display);font-size:1.1rem}
-.ask-head button{background:none;border:0;color:var(--white);font-size:1.5rem;cursor:pointer;width:36px;height:36px}
+.ask-head button{background:none;border:0;color:var(--dark-bg);font-size:1.5rem;cursor:pointer;width:36px;height:36px}
 .ask-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
 .msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.95rem;line-height:1.45;white-space:pre-wrap}
-.msg.bot{background:var(--sky);color:var(--ink);align-self:flex-start}
-.msg.me{background:var(--gold);color:var(--ink);align-self:flex-end}
+.msg.bot{background:rgba(255,255,255,.08);color:#C9D3E3;align-self:flex-start}
+.msg.me{background:var(--gold);color:#FFFFFF;align-self:flex-end}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips button{font:500 .85rem var(--text);border:1px solid var(--line);background:var(--white);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
-.ask-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--white)}
+.chips button{font:500 .85rem var(--text);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#C9D3E3;padding:7px 12px;border-radius:999px;cursor:pointer}
+.ask-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.1);background:var(--dark-bg)}
 .ask-form input{flex:1}
 .ask-form button{padding:10px 16px}
 
@@ -209,7 +211,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 .shiven-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .shiven-ring rect{fill:none;stroke:var(--gold);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.2,1)}
 .shiven.in .shiven-ring rect{stroke-dashoffset:0}
-.shiven figcaption{position:absolute;left:-14px;bottom:44px;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--white);font:800 1.6rem var(--display);letter-spacing:-.02em;padding:12px 22px 12px 16px;border-radius:16px;box-shadow:0 12px 30px rgba(20,33,61,.25);opacity:0;transform:translateX(-18px);transition:opacity .7s 1.9s,transform .7s 1.9s cubic-bezier(.2,.7,.2,1)}
+.shiven figcaption{position:absolute;left:-14px;bottom:44px;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--dark-bg);font:800 1.6rem var(--display);letter-spacing:-.02em;padding:12px 22px 12px 16px;border-radius:16px;box-shadow:0 12px 30px rgba(20,33,61,.25);opacity:0;transform:translateX(-18px);transition:opacity .7s 1.9s,transform .7s 1.9s cubic-bezier(.2,.7,.2,1)}
 .shiven figcaption svg{width:20px;height:27px;flex:none}
 .shiven.in figcaption{opacity:1;transform:none}
 .sparks{position:absolute;left:14px;right:14px;bottom:14px;height:70%;pointer-events:none;overflow:hidden;border-radius:0 0 24px 24px}
@@ -233,40 +235,40 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
 @keyframes pulse{70%{box-shadow:0 0 0 22px rgba(59,130,246,0)}100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}}
 .video iframe{width:100%;height:100%;border:0;display:block}
 .video-link{margin-top:12px;font-weight:600}
-.video-link a{color:var(--ink)}
+.video-link a{color:#FFFFFF}
 
 /* Goal bar */
-.goals{margin-top:40px;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.goals{margin-top:40px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 22px}
 .goal+.goal{margin-top:20px}
 .goal-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.95rem}
-.goal-top b{color:var(--ink)}
-.goal-track{margin-top:14px;height:14px;border-radius:999px;background:var(--sky);position:relative}
+.goal-top b{color:#FFFFFF}
+.goal-track{margin-top:14px;height:14px;border-radius:999px;background:rgba(255,255,255,.1);position:relative}
 .goal-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#3B82F6,#60A5FA);position:relative;transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
 .goal.in .goal-fill{width:100%}
 .goal-tag{position:absolute;right:-6px;top:50%;transform:translate(100%,-50%) scale(.6);opacity:0;background:var(--ink);color:var(--gold);font:800 .85rem var(--display);padding:4px 9px;border-radius:999px;transition:opacity .4s 1.7s,transform .5s 1.7s cubic-bezier(.3,1.6,.5,1)}
 .goal.in .goal-tag{opacity:1;transform:translate(100%,-50%) scale(1)}
 .goal-track{margin-right:58px}
-.goal-note{margin-top:12px;font-weight:600;color:var(--ink)}
+.goal-note{margin-top:12px;font-weight:600;color:#FFFFFF}
 
 /* Events */
 .events-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,56px);margin-top:40px;align-items:start}
 .event-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-.event{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:16px 20px;transition:transform .25s,box-shadow .25s}
-.event:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,33,61,.1)}
-.event-date{width:62px;text-align:center;background:var(--ink);color:var(--white);border-radius:14px;padding:8px 0;line-height:1.1}
-.event-date span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold)}
+.event{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px 20px;transition:transform .25s,box-shadow .25s}
+.event:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.event-date{width:62px;text-align:center;background:var(--gold);color:#FFFFFF;border-radius:14px;padding:8px 0;line-height:1.1}
+.event-date span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.8)}
 .event-date b{display:block;font:800 1.7rem var(--display)}
 .event h3{font-size:1.05rem;margin:0}
 .event p{margin:2px 0 0;font-size:.92rem}
-.event-meta{color:var(--ink);font-weight:500}
-.event-price{font:800 1.1rem var(--display);color:var(--ink);background:var(--gold-soft);padding:8px 12px;border-radius:12px}
+.event-meta{color:#C9D3E3;font-weight:500}
+.event-price{font:800 1.1rem var(--display);color:#FFFFFF;background:rgba(59,130,246,.2);padding:8px 12px;border-radius:12px}
 .event-price.free{background:var(--gold)}
 .event-poster{display:block;text-decoration:none;color:var(--ink);font-weight:600}
 .event-poster img{width:100%;border-radius:20px;box-shadow:0 16px 40px rgba(20,33,61,.15);transition:transform .4s}
 .event-poster:hover img{transform:rotate(-1deg) scale(1.02)}
 .event-poster span{display:block;margin-top:10px}
 .events-info{margin-top:28px;font-weight:600}
-.events-info a{color:var(--ink)}
+.events-info a{color:var(--gold)}
 @media (max-width:860px){.events-grid{grid-template-columns:1fr}.event{grid-template-columns:auto 1fr;}.event-price{grid-column:2;justify-self:start;padding:4px 10px}}
 @media (prefers-reduced-motion:reduce){.play-dot{animation:none}.goal-fill,.goal-tag{transition:none}}
 
@@ -393,7 +395,7 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
   <div class="sh-veil" aria-hidden="true"></div>
   <div class="sh-inner">
     <h1 class="sh-title"><span>For Shiven. For hope.</span><span>For every child fighting cancer.</span></h1>
-    <p class="sh-sub"><span>A teen-led foundation raising funds for Canadian charities</span><span>that support children with cancer and their families.</span></p>
+    <p class="sh-sub"><span>A family-led foundation raising funds for Canadian charities</span><span>that support children with cancer and their families.</span></p>
     <a class="sh-cta" href="#help"><span>Get involved</span><svg class="arrow" viewBox="0 0 16 11" aria-hidden="true"><path d="M0 5.5 H14.6 M10.3 1.2 L14.9 5.5 L10.3 9.8"/></svg></a>
     <ul class="sh-feats">
       <li><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span>$30,846 raised</span></li>
@@ -416,20 +418,32 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
     </figure>
     <div>
       <h2>Shiven's legacy</h2>
+      <p style="font-family:var(--display);font-size:1.15rem;color:#FFFFFF;font-weight:700;margin-bottom:8px;letter-spacing:-.01em">Shiven Shah &middot; December 15, 2007 &ndash; September 16, 2015</p>
       <p class="lede">Shiven was a young boy whose strength, laughter, and compassion touched every life around him.</p>
       <p>During his fight, four organizations gave our family hope, strength, and joy: Campfire Circle, Make-A-Wish Canada, SickKids Foundation, and Million Dollar Smiles. Team Shiven Foundation exists to give back to them, so the next family gets the same support we did.</p>
       <p>Every donation, every event, and every volunteer hour carries his name forward.</p>
       <ul class="values" aria-label="Our values"><li>Love</li><li>Courage</li><li>Giving</li><li>Hope</li></ul>
     </div>
   </div>
-  <div class="wrap">
-    <div class="video" id="shivenVideo">
-      <button class="video-play" type="button" aria-label="Play the Team Shiven video">
-        <img src="https://i.ytimg.com/vi/bNSTsITkWoA/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
-        <span class="play-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-      </button>
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:clamp(32px,4vw,56px)">
+    <div>
+      <div class="video" id="shivenVideo" style="margin-top:0">
+        <button class="video-play" type="button" aria-label="Play the Team Shiven video">
+          <img src="https://i.ytimg.com/vi/bNSTsITkWoA/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+          <span class="play-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+      <p class="video-link" style="color:#FFFFFF"><a href="https://youtu.be/bNSTsITkWoA" target="_blank" rel="noopener" style="color:#FFFFFF">Shiven's first medulloblastoma journey</a></p>
     </div>
-    <p class="video-link"><a href="https://youtu.be/bNSTsITkWoA" target="_blank" rel="noopener">Watch on YouTube</a></p>
+    <div>
+      <div class="video" id="pianoVideo" style="margin-top:0">
+        <button class="video-play" type="button" aria-label="Play Vahin piano video">
+          <img src="https://i.ytimg.com/vi/1XTBsdelftI/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+          <span class="play-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+      <p class="video-link" style="color:#FFFFFF"><a href="https://www.youtube.com/watch?v=1XTBsdelftI&t=1s" target="_blank" rel="noopener" style="color:#FFFFFF">7 year old Vahin playing the piano in memory of Shiven</a></p>
+    </div>
   </div>
 </section>
 
@@ -518,14 +532,20 @@ footer ul a{text-decoration:none}footer ul a:hover{color:var(--gold)}
         <p class="goal-note">Two goals set. Two goals passed.</p>
       </div>
     </div>
-    <img src="images/gallery/sporting-life-10k-2023.jpg" alt="Team Shiven runners holding a Lets go #TeamShiven 2023 sign at the Sporting Life 10K finish line">
+    <div style="display:grid;gap:16px">
+      <img src="images/gallery/sporting-life-10k-2023.jpg" alt="Team Shiven runners holding a Lets go #TeamShiven 2023 sign at the Sporting Life 10K finish line">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <img src="images/gallery/fundraiser-2026.png" alt="Team Shiven 2026 fundraiser: CA$3,353.15 raised against $2,500 goal" style="aspect-ratio:1/1;border-radius:18px">
+        <img src="images/gallery/fundraiser-2025.png" alt="TeamShiven 2025 fundraiser: $27,493.44 raised against $25,000 goal" style="aspect-ratio:1/1;border-radius:18px">
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- EVENTS: past dates hide themselves automatically. To add one, copy an <li class="event"> and change data-date (YYYY-MM-DD). -->
 <section class="events" id="events">
   <div class="wrap">
-    <h2>Upcoming events</h2>
+    <h2>Events</h2>
     <p class="lede">Dance for Shiven this Navratri. Madhur, Yatri, and the Chorus Group are raising funds for Team Shiven and Campfire Circle at five Raas-Garba celebrations across Ontario.</p>
     <div class="events-grid">
       <ol class="event-list">
@@ -823,6 +843,12 @@ document.getElementById("contactForm").addEventListener("submit", e => {
   const box=document.getElementById("shivenVideo"); if(!box) return;
   box.querySelector(".video-play").addEventListener("click",()=>{
     box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/bNSTsITkWoA?autoplay=1&rel=0" title="Team Shiven video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  });
+})();
+(function(){
+  const box=document.getElementById("pianoVideo"); if(!box) return;
+  box.querySelector(".video-play").addEventListener("click",()=>{
+    box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/1XTBsdelftI?autoplay=1&start=1&rel=0" title="Vahin playing piano in memory of Shiven" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
   });
 })();
 
